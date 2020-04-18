@@ -1,0 +1,26 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+
+    meta(charset='utf-8')
+    meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+
+    link(rel='stylesheet', href='/bower_components/bootstrap/dist/css/bootstrap.css')
+    
+    
+  body
+
+    div.container-fluid
+      div.jumbotron
+        h3 Welcome!
+        h1.display-4 #{title}
+        p.lead ILP-002 Server Side Application Issue Tracker
+
+      div
+      .row
+        div.col-md-1
+        div.col-md-10
+          block content
+        div.col-md-1

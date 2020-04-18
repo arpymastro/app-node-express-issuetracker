@@ -1,0 +1,26 @@
+extends ../layout
+
+block content
+    div.card
+        div.card-header 
+            b Edit Issue - #{issue.id}
+        form(method='post', action='/Issues/edit/#{issue.id}')
+            div.form-group.col-sm-7
+                label(for='Description') Description
+                input(id='description', name='description', value='#{issue.description}' placeholder='Issue Description').form-control
+            div.form-group.col-sm-7
+                label(for='Severity') Severity
+                select(id='severity', name='severity').form-control
+                    each severity in severities
+                        option(value=(severity) selected=(issue.severity == severity)) #{severity}
+            div.form-group.col-sm-7
+                label(for='Status') Status
+                select(id='status', name='status').form-control
+                    each status in statuses
+                        option(value=(status) selected=(issue.status == status)) #{status}
+            div.form-group.col-sm-7
+                label(for='Created Date') Created Date
+                input(id='createdDate', name='createdDate', value='#{issue.createdDate}' readonly).form-control
+            button(type='submit', style='margin:0 20px 30px 20px').btn.btn-success Update Issue
+            a(href='/')
+                button(type='button', style='margin:0 0 30px 10px').btn.btn-warning Go Back

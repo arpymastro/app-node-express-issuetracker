@@ -1,0 +1,23 @@
+extends ../layout
+
+block content
+    div.card
+        div.card-header 
+            b Add New Issue
+        form(method='post', action='/Issues/add')
+            div.form-group.col-sm-7
+                label(for='Description') Description
+                input(id='description', name='description', placeholder='Issue Description').form-control
+            div.form-group.col-sm-7
+                label(for='Severity') Severity
+                select(id='severity', name='severity').form-control
+                    each severity in severities
+                        option(value=(severity)) #{severity}
+            div.form-group.col-sm-7
+                label(for='Status') Status
+                select(id='status', name='status').form-control
+                    each status in statuses
+                        option(value=(status)) #{status}
+            button(type='submit', style='margin:0 20px 30px 20px').btn.btn-success Create Issue
+            a(href='/')
+                button(type='button', style='margin:0 0 30px 10px').btn.btn-warning Go Back

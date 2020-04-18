@@ -1,0 +1,35 @@
+extends ../layout
+
+block content
+  div.row
+    div(style="width:100%")
+      a(href="/Issues/add")
+        button.btn.btn-small.btn-success.float-right(style="margin-right:100px;") Add New Issue
+  br
+  div.row
+    div.table-responsive
+      table.table
+        thead.thead-warning
+          tr
+          th Issue Id
+          th Description
+          th Severity
+          th Status
+          th Created Date
+          th Resolved Date
+          th Actions
+        tbody
+          each issue in issues
+            tr
+            td #{issue.id}
+            td #{issue.description}
+            td #{issue.severity}
+            td #{issue.status}
+            td #{issue.createdDate}
+            td #{issue.resolvedDate}
+            td 
+              a(href="/Issues/edit/#{issue.id}") 
+                button.btn.btn-small.btn-primary Update
+              a(href="/Issues/delete/#{issue.id}")
+                &nbsp;&nbsp; 
+                button.btn.btn-small.btn-danger Delete
